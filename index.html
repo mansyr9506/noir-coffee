@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NOIR Coffee</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#1a120b;color:#f5efe6;overflow-x:hidden}
+.hero{
+min-height:100vh;
+background: linear-gradient(rgba(26,18,11,0.75), rgba(26,18,11,0.85)), url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?q=80&w=2000');
+background-size:cover;background-position:center;
+display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:40px 20px;
+}
+.hero h1{font-family:'Playfair Display',serif;font-size:64px;letter-spacing:8px;margin-bottom:12px}
+.hero p{font-size:18px;opacity:0.8;letter-spacing:4px;text-transform:uppercase;margin-bottom:40px}
+.btn{border:1px solid #c8a27a;color:#c8a27a;padding:14px 36px;text-decoration:none;letter-spacing:3px;text-transform:uppercase;font-size:12px;transition:0.3s}
+.btn:hover{background:#c8a27a;color:#1a120b}
+.section{padding:80px 20px;max-width:1100px;margin:0 auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;margin-top:40px}
+.card{background:#231a12;border:1px solid #3a2a1d;padding:30px;border-radius:12px}
+.card h3{font-family:'Playfair Display',serif;color:#c8a27a;margin-bottom:10px;font-size:22px}
+.card p{opacity:0.7;line-height:1.6;font-size:14px}
+.badge{color:#c8a27a;font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-bottom:60px;display:block;text-align:center}
+.menu-item{display:flex;justify-content:space-between;border-bottom:1px solid #2f2216;padding:18px 0}
+.menu-item span:last-child{color:#c8a27a}
+.footer{padding:40px;text-align:center;opacity:0.4;font-size:12px;letter-spacing:2px;border-top:1px solid #2f2216}
+</style>
+</head>
+<body>
+<div class="hero">
+<h1>NOIR</h1>
+<p>Specialty Coffee — Istanbul</p>
+<a href="#menu" class="btn">View Menu</a>
+</div>
+
+<div class="section" id="menu">
+<span class="badge">Crafted with brown beans</span>
+<div class="grid">
+<div class="card"><h3>Espresso Noir</h3><p>Deep roasted Ethiopian beans with chocolate and dark cherry notes. Single origin.</p></div>
+<div class="card"><h3>Flat White</h3><p>Velvet milk and double shot. Our signature brown crema.</p></div>
+<div class="
