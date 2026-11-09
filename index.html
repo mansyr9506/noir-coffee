@@ -1,44 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NOIR Coffee</title>
+<title>NOIR COFFEE - Coffee Siri with AI</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500&display=swap');
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',sans-serif;background:#1a120b;color:#f5efe6;overflow-x:hidden}
-.hero{
-min-height:100vh;
-background: linear-gradient(rgba(26,18,11,0.75), rgba(26,18,11,0.85)), url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?q=80&w=2000');
-background-size:cover;background-position:center;
-display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:40px 20px;
-}
-.hero h1{font-family:'Playfair Display',serif;font-size:64px;letter-spacing:8px;margin-bottom:12px}
-.hero p{font-size:18px;opacity:0.8;letter-spacing:4px;text-transform:uppercase;margin-bottom:40px}
-.btn{border:1px solid #c8a27a;color:#c8a27a;padding:14px 36px;text-decoration:none;letter-spacing:3px;text-transform:uppercase;font-size:12px;transition:0.3s}
-.btn:hover{background:#c8a27a;color:#1a120b}
-.section{padding:80px 20px;max-width:1100px;margin:0 auto}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;margin-top:40px}
-.card{background:#231a12;border:1px solid #3a2a1d;padding:30px;border-radius:12px}
-.card h3{font-family:'Playfair Display',serif;color:#c8a27a;margin-bottom:10px;font-size:22px}
-.card p{opacity:0.7;line-height:1.6;font-size:14px}
-.badge{color:#c8a27a;font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-bottom:60px;display:block;text-align:center}
-.menu-item{display:flex;justify-content:space-between;border-bottom:1px solid #2f2216;padding:18px 0}
-.menu-item span:last-child{color:#c8a27a}
-.footer{padding:40px;text-align:center;opacity:0.4;font-size:12px;letter-spacing:2px;border-top:1px solid #2f2216}
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,sans-serif}
+body{background:#0f0f0f;color:#fff}
+header{display:flex;justify-content:space-between;align-items:center;padding:20px}
+.logo{font-weight:900;letter-spacing:3px;font-size:22px}
+.logo span{color:#c7a17a}
+.hero{padding:50px 20px;text-align:center}
+.hero h1{font-size:52px;line-height:0.95}
+.hero h1 span{color:#c7a17a}
+.hero p{opacity:.6;margin:18px 0 25px}
+.btn{background:#c7a17a;color:#000;padding:14px 30px;border-radius:30px;font-weight:800;text-decoration:none;display:inline-block;border:none}
+.menu{padding:20px;display:grid;gap:15px}
+.card{background:#1c1c1c;padding:22px;border-radius:18px;display:flex;justify-content:space-between;align-items:center}
+.card b{font-size:18px}.card small{opacity:.5}
+.price{color:#c7a17a;font-weight:900;font-size:19px}
+.ai{margin:20px;background:#c7a17a;color:#000;padding:22px;border-radius:18px;text-align:center}
+.ai input{width:100%;padding:13px;border-radius:12px;border:none;margin-top:12px;outline:none}
+.ai button{margin-top:10px;background:#000;color:#fff;padding:12px 20px;border:none;border-radius:12px;width:100%;font-weight:700}
+footer{padding:30px;text-align:center;opacity:.4;font-size:13px}
 </style>
 </head>
 <body>
-<div class="hero">
-<h1>NOIR</h1>
-<p>Specialty Coffee — Istanbul</p>
-<a href="#menu" class="btn">View Menu</a>
+<header><div class="logo">NOIR <span>COFFEE</span></div><div>☕</div></header>
+<section class="hero">
+<h1>ВКУС<br><span>НАСТОЯЩЕГО</span><br>ДНЯ</h1>
+<p>Спешелти кофе, атмосфера и твой личный AI-бариста</p>
+<a class="btn" href="#menu">Посмотреть меню ↓</a>
+</section>
+<div class="ai">
+<h2>🤖 NOIR AI - Coffee Siri</h2>
+<p>Напиши что хочешь, я подберу кофе</p>
+<input id="q" placeholder="Например: хочу что-то сладкое и с молоком">
+<button onclick="ask()">Спросить AI</button>
+<p id="ans" style="margin-top:12px;font-weight:700"></p>
 </div>
-
-<div class="section" id="menu">
-<span class="badge">Crafted with brown beans</span>
-<div class="grid">
-<div class="card"><h3>Espresso Noir</h3><p>Deep roasted Ethiopian beans with chocolate and dark cherry notes. Single origin.</p></div>
-<div class="card"><h3>Flat White</h3><p>Velvet milk and double shot. Our signature brown crema.</p></div>
-<div class="
+<section class="menu" id="menu">
+<div class="card"><div><b>Эспрессо</b><br><small>Крепкий, насыщенный</small></div><div class="price">650 ₸</div></div>
+<div class="card"><div><b>Капучино</b><br><small>Нежная молочная пена</small></div><div class="price">950 ₸</div></div>
+<div class="card"><div><b>Латте</b><br><small>Для долгих разговоров</small></div><div class="price">950 ₸</div></div>
+<div class="card"><div><b>Флэт Уайт</b><br><small>Для настоящих ценителей</small></div><div class="price">1100 ₸</div></div>
+<div class="card"><div><b>Раф</b><br><small>Сладкий, сливочный</small></div><div class="price">1200 ₸</div></div>
+</section>
+<footer>NOIR COFFEE © 2026 • Сделано в Казахстане</footer>
+<script>
+function ask(){
+let q=document.getElementById('q').value.toLowerCase();
+let a=document.getElementById('ans');
+if(q.includes('слад')) a.innerText='Возьми Раф - сладкий и сливочный, тебе понравится!';
+else if(q.includes('молок')||q.includes('неж')) a.innerText='Твой выбор - Капучино или Латте с нежной пеной.';
+else if(q.includes('креп')||q.includes('бодр')) a.innerText='Тебе нужен Эспрессо или Флэт Уайт - взбодрит за 5 минут!';
+else if(q=='') a.innerText='Напиши что хочешь, например: хочу крепкий';
+else a.innerText='Советую Латте - классика, которая нравится всем!';
+}
+</script>
+</body>
+</html>
