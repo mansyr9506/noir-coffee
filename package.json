@@ -1,0 +1,6 @@
+{
+  "name": "noir-coffee",
+  "private": true,
+  "scripts": { "start": "node server.js" },
+  "engines": { "node": ">=18" }
+}
