@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>NOIR COFFEE — заказы</title>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;800&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .adm-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+  .tabs{display:flex;gap:8px;flex-wrap:wrap}
+  .orders{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+  .order{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px;display:flex;flex-direction:column;gap:8px}
+  .order.new{border-color:var(--accent)}
+  .order h3{font-family:var(--head);font-size:18px;display:flex;justify-content:space-between}
+  .order .meta{color:var(--muted);font-size:13px}
+  .order ul{list-style:none;display:flex;flex-direction:column;gap:2px}
+  .order .acts{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+  .order .acts button,.stop button{background:var(--surface-2);border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:13px;font-weight:700}
+  .order .acts button:hover,.stop button:hover{border-color:var(--accent)}
+  .order .acts .primary{background:var(--accent);color:#000;border-color:var(--accent)}
+  .badge{font-size:12px;padding:2px 10px;border-radius:999px;background:var(--surface-2);font-family:var(--body);font-weight:700}
+  .stop{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px}
+  .stop div{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+  .stop .is-off{color:var(--muted);text-decoration:line-through}
+  .login{max-width:360px;margin:80px auto;display:flex;flex-direction:column;gap:10px}
+  .login input{padding:14px 16px;border-radius:14px;border:1px solid var(--line);background:var(--bg);color:var(--text);font:inherit}
+</style>
+</head>
+<body>
+<header><div class="wrap"><a class="logo" href="/">NOIR <span>COFFEE</span></a><button class="cart-btn" id="logout" hidden>Выйти</button></div></header>
+<main class="wrap" style="padding-top:32px;padding-bottom:48px">
+  <form class="login" id="login">
+    <h2>Вход для персонала</h2>
+    <input id="email" type="email" placeholder="Email сотрудника" required autocomplete="username">
+    <input id="key" type="password" placeholder="Пароль" required autocomplete="current-password">
+    <p class="form-error" id="loginErr"></p>
+    <button class="btn">Войти</button>
+  </form>
+
+  <div id="app" hidden>
+    <div class="adm-top">
+      <h2 style="margin:0">Заказы</h2>
+      <div class="tabs" id="tabs"></div>
+    </div>
+    <div class="orders" id="orders"></div>
+    <h2 style="margin-top:40px">Стоп-лист</h2>
+    <p class="sub">Выключенные позиции нельзя заказать на сайте</p>
+    <div class="stop" id="stop"></div>
+  </div>
+</main>
+<div class="toast" id="toast"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js" defer></script>
+<script src="config.js" defer></script>
+<script src="admin.js" defer></script>
+</body>
+</html>

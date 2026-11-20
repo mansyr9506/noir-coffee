@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NOIR COFFEE — спешелти кофе и AI-бариста</title>
+<meta name="description" content="NOIR COFFEE — спешелти кофейня в Казахстане. Меню, цены и AI-бариста, который подберёт напиток под настроение.">
+<meta name="theme-color" content="#0e0d0c">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;800&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#">NOIR <span>COFFEE</span></a>
+    <nav><a href="#ai">AI-бариста</a><a href="#menu">Меню</a><a href="#contacts">Контакты</a></nav>
+    <button class="cart-btn" id="cartBtn" aria-label="Открыть корзину">☕ <span id="cartSum">0 ₸</span><span class="count" id="cartCount">0</span></button>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <h1>ВКУС<br><span>НАСТОЯЩЕГО</span><br>ДНЯ</h1>
+      <p>Спешелти кофе, тёплая атмосфера и твой личный AI-бариста</p>
+      <div class="actions">
+        <a class="btn" href="#menu">Посмотреть меню ↓</a>
+        <a class="btn ghost" href="#ai">Подобрать напиток</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="ai">
+    <div class="wrap">
+      <div class="ai">
+        <div class="ai-head">
+          <div class="ai-avatar" aria-hidden="true">🤖</div>
+          <div><h2>NOIR AI — Coffee Siri</h2><small>● онлайн</small></div>
+        </div>
+        <div class="chat" id="chat" aria-live="polite"></div>
+        <form id="askForm" autocomplete="off">
+          <label for="q" class="visually-hidden" hidden>Ваш запрос</label>
+          <input id="q" placeholder="Например: хочу что-то сладкое и с молоком" maxlength="200">
+          <button type="submit" aria-label="Спросить">→</button>
+        </form>
+        <div class="hints" id="hints"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="menu">
+    <div class="wrap">
+      <h2>Меню</h2>
+      <p class="sub">Зерно свежей обжарки, молоко на выбор: обычное, овсяное, кокосовое</p>
+      <div class="filters" id="filters"></div>
+      <div class="menu" id="menuGrid"></div>
+    </div>
+  </section>
+
+  <section id="contacts">
+    <div class="wrap info">
+      <div><b>Часы работы</b><p>Ежедневно 08:00 – 23:00</p></div>
+      <div><b>Адрес</b><p>Казахстан</p></div>
+      <div><b>Предзаказ</b><p>Собери заказ в корзине — заберёшь без очереди</p></div>
+    </div>
+  </section>
+</main>
+
+<footer>NOIR COFFEE © 2026 • Сделано в Казахстане • <a href="admin.html">Для персонала</a></footer>
+
+<div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Корзина">
+  <div class="shade" data-close></div>
+  <div class="panel">
+    <header><h2 style="margin:0;font-size:22px">Корзина</h2><button class="close" data-close aria-label="Закрыть">×</button></header>
+    <div class="items" id="items"></div>
+    <form id="orderForm" class="order-form" autocomplete="on">
+      <div class="two">
+        <input id="oName" name="name" placeholder="Имя" required minlength="2" maxlength="60" autocomplete="given-name" aria-label="Имя">
+        <input id="oPhone" name="phone" type="tel" placeholder="+7 700 000 00 00" required minlength="10" maxlength="20"autocomplete="tel" aria-label="Телефон">
+      </div>
+      <select id="oPickup" aria-label="Когда заберёшь">
+        <option value="10">Через 10 минут</option>
+        <option value="20">Через 20 минут</option>
+        <option value="30">Через 30 минут</option>
+        <option value="60">Через час</option>
+      </select>
+      <input id="oComment" maxlength="200" placeholder="Комментарий: овсяное молоко, без сахара…" aria-label="Комментарий">
+      <p class="form-error" id="formError" role="alert"></p>
+      <div class="total"><span>Итого</span><span id="total">0 ₸</span></div>
+      <button class="btn" id="checkout" type="submit">Оформить предзаказ</button>
+    </form>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js" defer></script>
+<script src="config.js" defer></script>
+<script src="script.js" defer></script>
+</body>
+</html>
